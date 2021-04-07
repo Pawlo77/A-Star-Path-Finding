@@ -1,6 +1,6 @@
 # a_star_path_finding
 Graphical implementation of <b>A* path finding algorithm</b> using python and pygame.<br>
-It has random <b>generator of perfect mazes</b>.<br>
+It has random <b>generator of perfect mazes</b>.<br><br>
 <img src="example.png" alt="example maze and solution" width="300" height="300" align="middle"/>
 <hr>
 Options (key map):
