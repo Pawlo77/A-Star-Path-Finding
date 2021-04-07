@@ -4,6 +4,7 @@ import numpy as np
 from numpy.random import shuffle
 from random import choice, randrange
 from queue import PriorityQueue
+from time import sleep
 
 """
 Standard User Interface:
@@ -16,6 +17,7 @@ Rest:
     C key to reset entire board 
     SPACE key to start alg
     G key to generate maze
+    F to loop maze generation and solving with animations
 """
 
 pygame.init()
@@ -26,12 +28,13 @@ class Settings:
     def __init__(self):
         self.WIDTH = 1000
         self.HEIGHT = 500
-        self.ROWS = 100
-        self.COLS = 100
+        self.ROWS = 50
+        self.COLS = 50
         self.SIZE = None # -----
         self.start_x = None # all 3 calculated in make_grid, start_x and start_y allows to center the grid on the screen
         self.start_y = None # -----
         self.NAME = "A* Path Finding"
+        self.LOOP = False
         self.STEPS = 0 # 0 - see auto alg computation, 1 - force next algo step with RETURN, 2 - algo animation off
         self.GENERATE = False # False - maze generation without animation
         self.DIAGONAL = True # False - algo can't traverse on diagonals (diagonal move cost and normal move cost are equal)
@@ -359,8 +362,10 @@ def listen(event): # user interaction available all the time - SUI
         elif event.key == pygame.K_q: # quit
             pygame.quit()
             exit()
-        elif event.key == pygame.K_l: # change maze generatir display mode
+        elif event.key == pygame.K_l: # change maze generator display mode
             root.GENERATE = not root.GENERATE
+        elif event.key == pygame.K_f: # loop maze generator and solver
+            root.LOOP = not root.LOOP
 
 def algorithm(start, end, grid):
     """Args:
@@ -455,6 +460,22 @@ def get_node(pos, grid):
         return 0
     return grid[col][row] # node - mouse target
 
+def genereate_full_maze(): # generate maze with start and end
+    start, end = None, None
+    grid = genereate_maze()
+    start = grid[1][1]
+    end = grid[-2][-2]
+    start.make_start()
+    end.make_end()
+
+    return start, end, grid
+
+def solve(start, end, grid):
+    solution = algorithm(start, end, grid)
+    if solution != -1:
+        print(f"Shortest path is {solution} units long")
+    else:
+        print("Path doesn't exist")
 
 def main(): # main program function
     grid = make_grid() # create an empty grid
@@ -508,11 +529,7 @@ def main(): # main program function
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE and start and end: # start the alg
-                    solution = algorithm(start, end, grid)
-                    if solution != -1:
-                        print(f"Shortest path is {solution} units long")
-                    else:
-                        print("Path doesn't exist")
+                    solve(start, end, grid)
 
                 if event.key == pygame.K_c: # clear the board
                     start, end = None, None
@@ -522,13 +539,19 @@ def main(): # main program function
                     root.draw(grid, True)
 
                 elif event.key == pygame.K_g: # generate the maze
-                    start, end = None, None
-                    grid = genereate_maze()
-                    start = grid[1][1]
-                    end = grid[-2][-2]
-                    start.make_start()
-                    end.make_end()
-                
+                    if root.LOOP:
+                        root.DIAGONAL = False
+                        root.GENERATE = True
+                        root.STEPS = 0
+                        while root.LOOP:
+                            for event in pygame.event.get():
+                                listen(event)
+                            start, end, grid = genereate_full_maze()
+                            solve(start, end, grid)
+                            sleep(3)
+                    else:
+                        start, end, grid = genereate_full_maze()
+
                 elif event.key == pygame.K_o: # change diagonal setting
                     root.DIAGONAL = not root.DIAGONAL
 
