@@ -1,6 +1,7 @@
 # a_star_path_finding
 Graphical implementation of <b>A* path finding algorithm</b> using python and pygame.<br>
 It has random <b>generator of perfect mazes</b>.<br>
+<img src="example.png" alt="example maze and solution" width="300" height="300" align="middle"/>
 <hr>
 Options (key map):
 <ol>
@@ -25,6 +26,16 @@ Options (key map):
         </ul>
     </li>
 </ol>
+<hr>
+Color map:
+<ul>
+    <li><b>orange</b> - starting node</li>
+    <li><b>purple</b> - end node</li>
+    <li><b>black</b> - barriers</li>
+    <li><b>green</b> - open nodes (that algorithm considered but didn't checked yet)</li>
+    <li><b>red</b> - closed nodes (that algorithm visited directly)</li>
+    <li><b>blue</b> - shortest path nodes</li>
+</ul>
 <hr>
 To change graph size:
 <ul>
