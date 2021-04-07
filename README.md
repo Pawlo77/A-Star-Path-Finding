@@ -1,8 +1,8 @@
 # a_star_path_finding
 Graphical implementation of <b>A* path finding algorithm</b> using python and pygame.<br>
 It has random <b>generator of perfect mazes</b>.<br>
-
-Options (key map):<br>
+<hr>
+Options (key map):
 <ol>
     <li>
         Standard User Interface - instant response:
@@ -25,15 +25,14 @@ Options (key map):<br>
         </ul>
     </li>
 </ol>
- 
-
-To change graph size:<br>
+<hr>
+To change graph size:
 <ul>
     <li>change intiger value of <b>Settings().ROWS</b> to change graph rows number</li>
     <li>change intiger value of <b>Settings().COLS</b> to change graph columns number</li>
 </ul>
 
-To change window size (in pixels):<br>
+To change window size (in pixels):
 <ul>
     <li>change intiger value of <b>Settings().WIDTH</b> to change x window dimension</li>
     <li>change intiger value of <b>Settings().HEIGHT</b> to change y widow dimension</li>
