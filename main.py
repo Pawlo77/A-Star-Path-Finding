@@ -28,8 +28,8 @@ class Settings:
     def __init__(self):
         self.WIDTH = 1000
         self.HEIGHT = 500
-        self.ROWS = 50
-        self.COLS = 50
+        self.ROWS = 20
+        self.COLS = 20
         self.SIZE = None # -----
         self.start_x = None # all 3 calculated in make_grid, start_x and start_y allows to center the grid on the screen
         self.start_y = None # -----
