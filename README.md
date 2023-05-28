@@ -1,50 +1,39 @@
 # a_star_path_finding
-Graphical implementation of <b>A* path finding algorithm</b> using python and pygame.<br>
-It has random <b>generator of perfect mazes</b>.<br><br>
-<img src="example.png" alt="example maze and solution" width="300" height="300" align="middle"/>
-<hr>
-Options (key map):
-<ol>
-    <li>
-        Standard User Interface - instant response:
-        <ul>
-            <li><b>Q</b> key to quit</li>
-            <li><b>P</b> key to see alg / see alg step by step / hide alg</li>
-            <li><b>L</b> key to see maze gen / hide maze generator work</li>
-        </ul>
-    </li>
-    <li>
-        Rest - response only in graph creation mode<br>
-        (not available during alg work):<br>
-        <ul>
-            <li><b>O</b> key to use diagonal conections or not</li>
-            <li><b>R</b> key to reset alg but keep board</li>
-            <li><b>C</b> key to reset entire board </li>
-            <li><b>SPACE</b> key to start alg</li>
-            <li><b>G</b> key to generate maze</li>
-            <li><b>F</b> to loop maze generation and solving with animations</li>
-        </ul>
-    </li>
-</ol>
-<hr>
-Color map:
-<ul>
-    <li><b>orange</b> - starting node</li>
-    <li><b>purple</b> - end node</li>
-    <li><b>black</b> - barriers</li>
-    <li><b>green</b> - open nodes (that algorithm considered but didn't checked yet)</li>
-    <li><b>red</b> - closed nodes (that algorithm visited directly)</li>
-    <li><b>blue</b> - shortest path nodes</li>
-</ul>
-<hr>
-To change graph size:
-<ul>
-    <li>change intiger value of <b>Settings().ROWS</b> to change graph rows number</li>
-    <li>change intiger value of <b>Settings().COLS</b> to change graph columns number</li>
-</ul>
 
-To change window size (in pixels):
-<ul>
-    <li>change intiger value of <b>Settings().WIDTH</b> to change x window dimension</li>
-    <li>change intiger value of <b>Settings().HEIGHT</b> to change y widow dimension</li>
-</ul>
+Graphical implementation of the A* path-finding algorithm using Python and Pygame. It includes a random maze generator for perfect mazes.
+
+![Example Maze and Solution](example.png)
+
+## Options (Key Map)
+
+1. Standard User Interface - Instant Response:
+    - Press **Q** to quit.
+    - Press **P** to toggle between seeing the algorithm instantly, step by step, or hiding the algorithm.
+    - Press **L** to toggle between seeing the maze generation or hiding the maze generator work.
+
+2. Rest - Response Only in Graph Creation Mode (Not Available During Algorithm Work):
+    - Press **O** to enable or disable diagonal connections.
+    - Press **R** to reset the algorithm while keeping the board.
+    - Press **C** to reset the entire board.
+    - Press **SPACE** to start the algorithm.
+    - Press **G** to generate a maze.
+    - Press **F** to loop maze generation and solving with animations.
+
+## Color Map
+
+- Orange: Starting node
+- Purple: End node
+- Black: Barriers
+- Green: Open nodes (nodes that the algorithm considered but didn't check yet)
+- Red: Closed nodes (nodes that the algorithm visited directly)
+- Blue: Shortest path nodes
+
+To change the graph size:
+- Change the integer value of `Settings().ROWS` to modify the number of graph rows.
+- Change the integer value of `Settings().COLS` to modify the number of graph columns.
+
+To change the window size (in pixels):
+- Change the integer value of `Settings().WIDTH` to modify the x window dimension.
+- Change the integer value of `Settings().HEIGHT` to modify the y window dimension.
+
+The `a_star_path_finding` project provides a visual representation of the A* path-finding algorithm and allows users to generate random mazes for testing the algorithm's effectiveness.
